@@ -34,7 +34,7 @@ int main()
     int correct_entries=0;
     std::string one_entry;
 
-    std::ifstream inputFile("c++_try_adventofcode/day4/day4_input.txt");
+    std::ifstream inputFile("c++_implementations/day4/day4_input.txt");
     while(!inputFile.eof())
     {
         one_entry = single_entry(inputFile);
@@ -43,5 +43,5 @@ int main()
                 correct_entries += 1;
             }
     }
-    std::cout << correct_entries;
+    std::cout << "The answer is: " << correct_entries << std::endl;
 }

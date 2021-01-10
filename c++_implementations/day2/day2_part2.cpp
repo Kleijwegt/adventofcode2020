@@ -55,7 +55,7 @@ int main()
     std::string letter;
     std::string password, temp;
 
-    std::ifstream inputFile("c++_try_adventofcode/day2/day2_input.txt");
+    std::ifstream inputFile("c++_implementations/day2/day2_input.txt");
 
     while(std::getline(inputFile, temp))
     {
@@ -76,6 +76,8 @@ int main()
         max_times_vector[numberOfInputs] = max;
         ++numberOfInputs;
     }
+
+    std::cout << "The answer is: " << correct_passwords << std::endl;
 
     return 0;
 }

@@ -29,7 +29,7 @@ int main()
     numberOfInputs = 0;
     std::vector<int> input_vals;
 
-    std::ifstream inputFile("c++_try_adventofcode/day1/day1_input.txt");
+    std::ifstream inputFile("c++_implementations/day1/day1_input.txt");
 
     // while(inputFile >> temp)  // safer way to perform the same check?
     while(!inputFile.eof()) //Check for end-of-file character
@@ -44,7 +44,7 @@ int main()
     
     std::tie (first_val, second_val) = check_sum_from_vector(input_vals);
 
-    std::cout << first_val * second_val;
+    std::cout << "The answer is: " << first_val * second_val << std::endl;
 
     return 0;
 }

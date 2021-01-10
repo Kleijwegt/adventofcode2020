@@ -1,15 +1,12 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include<array>
 #include <tuple>
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 
-
-
-
-
-int main()
+int walk_through_forest(int step_horizontal, int step_vertical)
 {
     int numberOfInputs, trees_hit=0;
     std::string temp;
@@ -26,13 +23,9 @@ int main()
         input_vals[numberOfInputs] = temp;
         ++numberOfInputs;
     }
-
-
-    int step_horizontal = 3;
-    int step_vertical = 1;
     
     int colums_landing = 0;
-    // Walk through all the rows with a step of 1 down per 3 right. Don't perform an extra step after the last row!
+    // Walk through the entire forest. Don't perform an extra step after the last row!
     for (int rows = 0; rows < input_vals.size() - 1; rows = rows + step_vertical) {
         if (input_vals[rows].substr(colums_landing, 1) == "#")
         {
@@ -41,7 +34,22 @@ int main()
         colums_landing = (colums_landing + step_horizontal) % input_vals[0].size();
     }
 
-    std::cout << "The answer is: " << trees_hit << std::endl;  
+    return trees_hit;
+}
+
+int main ()
+{
+    std::array<int,5> horizontal_moves{1, 3, 5, 7, 1, };
+    std::array<int,5> vertical_moves{1, 1, 1, 1, 2, };
+    unsigned long int trees_encounterd = 1;
+    
+    for (int i = 0; i < horizontal_moves.size(); i++)
+    {   
+        int hit = walk_through_forest(horizontal_moves[i], vertical_moves[i]);
+        trees_encounterd *= walk_through_forest(horizontal_moves[i], vertical_moves[i]);
+    }
+
+    std::cout << "The answer is: " << trees_encounterd << std::endl;  
 
     return 0;
 }
